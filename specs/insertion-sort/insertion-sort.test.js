@@ -13,13 +13,25 @@
   And you put xdescribe instead of describe if you want to suspend running the unit tests.  
 */
 
+const swap = (arr, index1, index2) =>
+  ([arr[index1], arr[index2]] = [arr[index2], arr[index1]]);
+
 function insertionSort(nums) {
-  // code goes here
+  let startIndex = 1;
+
+  while (startIndex < nums.length) {
+    for (let i = startIndex; nums[i - 1] > nums[i] && i > 0; i--) {
+      swap(nums, i - 1, i);
+    }
+    startIndex++;
+  }
+
+  return nums;
 }
 
 // unit tests
 // do not modify the below code
-test.skip("insertion sort", function () {
+test("insertion sort", function () {
   const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
   insertionSort(nums);
   expect(nums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
