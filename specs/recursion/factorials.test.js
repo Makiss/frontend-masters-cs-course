@@ -15,12 +15,12 @@ function factorial(n, acc = 1) {
     return acc;
   }
 
-  return n * factorial(n - 1, n * acc);
+  return factorial(n - 1, n * acc);
 }
 
 // unit tests
 // do not modify the below code
-test.skip("factorials", () => {
+test("factorials", () => {
   expect(factorial(1)).toEqual(1);
   expect(factorial(2)).toEqual(2);
   expect(factorial(3)).toEqual(6);
