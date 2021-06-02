@@ -10,7 +10,13 @@
   factorial(3) = 6 
 */
 
-function factorial(n) {}
+function factorial(n, acc = 1) {
+  if (n === 1) {
+    return acc;
+  }
+
+  return n * factorial(n - 1, n * acc);
+}
 
 // unit tests
 // do not modify the below code
